@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class GameActivity extends AppCompatActivity {
 
+    private FbModule fbModule;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,5 +18,15 @@ public class GameActivity extends AppCompatActivity {
         BoardGame boardGame = new BoardGame(this);
         setContentView(boardGame);
 
+        fbModule = new FbModule(this);
+    }
+
+
+    public void setPositionFromFb(Position position) {
+    }
+
+    public void setNewTouch(int line, int col) {
+        Position position = new Position(line,col);
+        fbModule.setPositionInFirebase(position);
     }
 }
